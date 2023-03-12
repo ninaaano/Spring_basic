@@ -23,16 +23,19 @@ public class AppConfig {
 
     @Bean
     public MemberService memberService(){
+        System.out.println("call AppConfig.memberService"); // soutm
         return new MemberServiceImpl(memberRepository()); // 생성자 주입, 의존성 주입
     }
 
     @Bean
     // command + option + M -> 리팩토링
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
     @Bean
     public OrderService orderService(){
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
     @Bean
