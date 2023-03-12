@@ -33,5 +33,15 @@ public class ConfigurationSingletonTest {
         assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
         assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
+
+    @Test
+    void ConfigurationDeep(){
+        // 스프링 빈으로 등록
+        ApplicationContext ac = new
+                AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class); // 옵션+커맨드+v
+
+        System.out.println("bean = " + bean.getClass()); // soutv
+    }
 }
 
